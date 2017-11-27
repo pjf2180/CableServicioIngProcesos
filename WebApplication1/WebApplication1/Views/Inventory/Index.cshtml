@@ -1,0 +1,39 @@
+﻿@model IEnumerable<WebApplication1.Models.Material>
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>View</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.InventarioMaterial.InventarioMaterialId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaterialId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MaterialId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MaterialId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MaterialId })
+        </td>
+    </tr>
+}
+
+</table>

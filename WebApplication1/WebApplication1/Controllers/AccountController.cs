@@ -24,7 +24,17 @@ namespace WebApplication1.Controllers
             return View();
         }
 
+        public ActionResult Paquetes()
+        {
+            return View();
+        }
+
         public ActionResult Pago()
+        {
+            return View();
+        }
+
+        public ActionResult Estado()
         {
             return View();
         }

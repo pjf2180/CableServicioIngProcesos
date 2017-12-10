@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Cliente";
+}
+
+<div class="jumbotron">
+    <h1>¡Bienvenido a tu cuenta!</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Solicitar servicios</h2>
+        <p>Para solicitar plan de servicio.</p>
+        <p><a class="btn btn-default" href="@Url.Action("Paquetes", "Account")">Continuar &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Estado de cuenta</h2>
+        <p>Para ver información sobre la cuenta actual.</p>
+        <p><a class="btn btn-default" href="@Url.Action("Estado", "Account")">Continuar &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Tipo de pago</h2>
+        <p>Conoce las diferentes maneras de pagar tu servicio.</p>
+        <p><a class="btn btn-default" href="@Url.Action("Pago", "Account")">Continuar &raquo;</a></p>
+    </div>
+</div>

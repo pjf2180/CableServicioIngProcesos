@@ -29,7 +29,8 @@ namespace WebApplication1.Controllers
         public ActionResult Paquetes()
         {
             var servicios = _serviceManager.GetCatalogoServicios();
-            return View(servicios);
+            
+            return View(new CreditViewModels { Servicios = servicios });
         }
 
         public ActionResult Pago()

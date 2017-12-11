@@ -187,6 +187,10 @@
     <Compile Include="Migrations\201711271912043_initialMigration.Designer.cs">
       <DependentUpon>201711271912043_initialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712112046454_TipoServicioPrecioMigration.cs" />
+    <Compile Include="Migrations\201712112046454_TipoServicioPrecioMigration.Designer.cs">
+      <DependentUpon>201712112046454_TipoServicioPrecioMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CatalogoMateriales.cs" />
@@ -281,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711271912043_initialMigration.resx">
       <DependentUpon>201711271912043_initialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712112046454_TipoServicioPrecioMigration.resx">
+      <DependentUpon>201712112046454_TipoServicioPrecioMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -190,6 +190,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CatalogoMateriales.cs" />
     <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\CreditViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\InventarioMateriales.cs" />
     <Compile Include="Models\ManageViewModels.cs" />

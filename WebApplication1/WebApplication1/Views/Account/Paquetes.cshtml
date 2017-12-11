@@ -1,4 +1,5 @@
-﻿@{
+﻿@model WebApplication1.Models.CreditViewModels
+@{
     ViewBag.Title = "Usuario";
 }
 <style>
@@ -16,7 +17,7 @@
     </p>
 </div>
 
-<div class="row">
+@*<div class="row">
     <table align="center" style="width:80%">
         <tr>
             <th colspan="2" style="text-align:center">Servicios y paquetes</th>
@@ -96,14 +97,56 @@
             <td style="text-align:center">$500</td>
         </tr>
     </table>
-</div>
-<div class="row">
-    <div class="col-md-4">
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <br />
-                <input type="submit" class="btn btn-default" value="Continuar" />
-            </div>
+</div>*@
+
+@using (Html.BeginForm("Paquetes", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <h4>Ingrese la información requerida para la forma de pago.</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(m => m.Titular, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Titular, new { @class = "form-control" })
         </div>
     </div>
-</div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Clabe, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.Clabe, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Clave, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.Clave, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Continuar" />
+        </div>
+    </div>
+}
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaterialId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.MaterialId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.MaterialId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.MaterialId })
+        </td>
+    </tr>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

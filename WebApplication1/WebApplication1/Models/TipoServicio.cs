@@ -9,5 +9,6 @@ namespace WebApplication1.Models
     {
        public int TipoServicioId { get; set; }
        public string Descripcion { get; set; }
+       public Decimal Precio { get; set; } 
     }
 }

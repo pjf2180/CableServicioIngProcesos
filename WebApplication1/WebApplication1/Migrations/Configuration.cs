@@ -27,6 +27,16 @@ namespace WebApplication1.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            context.CatalogoServicios.AddOrUpdate(
+                new Models.TipoServicio { Descripcion = "Telefonía" ,Precio = 100 },
+                new Models.TipoServicio { Descripcion = "Televisión" ,Precio = 300},
+                new Models.TipoServicio { Descripcion = "Telefonía + Televisión",Precio = 350},
+                new Models.TipoServicio { Descripcion = "Internet 10 megas",Precio = 300},
+                new Models.TipoServicio { Descripcion = "Inteternet 20 Megas",Precio = 350 },
+                new Models.TipoServicio { Descripcion = "Telefonía + Internet 20 Megas",Precio=380 },
+                new Models.TipoServicio { Descripcion = "Televisión + Internet 20 Megas", Precio = 450},
+                new Models.TipoServicio { Descripcion = "Televisión + Telefoníia + Internet 20 Megas" ,Precio = 500}
+                );
         }
     }
 }

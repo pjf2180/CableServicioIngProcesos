@@ -25,5 +25,9 @@ namespace BusinessLogic
             context.RegistrosDeTrabajo.Add(registro);
             context.SaveChanges();
         }
+        public ICollection<TipoServicio> GetCatalogoServicios()
+        {
+            return context.CatalogoServicios.ToList();
+        }
     }
 }

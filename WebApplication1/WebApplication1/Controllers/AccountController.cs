@@ -9,7 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using WebApplication1.Models;
-
+using WebApplication1.BusinessLogic;
+using BusinessLogic;
 
 namespace WebApplication1.Controllers
 {
@@ -18,7 +19,8 @@ namespace WebApplication1.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
+        private ClienteUserManager _clienteUserManager;
+        private ServiceManager _serviceManager;
         public ActionResult Cliente()
         {
             return View();
@@ -26,7 +28,8 @@ namespace WebApplication1.Controllers
 
         public ActionResult Paquetes()
         {
-            return View();
+            var servicios = _serviceManager.GetCatalogoServicios();
+            return View(servicios);
         }
 
         public ActionResult Pago()
@@ -41,12 +44,15 @@ namespace WebApplication1.Controllers
 
         public AccountController()
         {
+            _clienteUserManager = new ClienteUserManager();
+            _serviceManager = new ServiceManager();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {
             UserManager = userManager;
             SignInManager = signInManager;
+            _clienteUserManager = new ClienteUserManager();
         }
 
         public ApplicationSignInManager SignInManager
@@ -172,10 +178,25 @@ namespace WebApplication1.Controllers
         {
             if (ModelState.IsValid)
             {
+
+       
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
+                
                 if (result.Succeeded)
                 {
+                    await UserManager.AddToRoleAsync(user.Id, "Cliente");
+                    _clienteUserManager.AddClienteUser(new Models.Cliente
+                    {
+                        Calle = model.Calle,
+                        Ciudad = model.Ciudad,
+                        CoidgoPostal = model.Ciudad,
+                        Colonia = model.Colonia,
+                        Nombre = model.NombreCliente,
+                        AppUser = user
+
+                    });
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771

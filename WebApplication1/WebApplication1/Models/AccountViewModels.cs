@@ -81,8 +81,24 @@ namespace WebApplication1.Models
         public string ConfirmPassword { get; set; }
 
         [Required]
-        [Display(Name = "Dirección")]
-        public string Address { get; set; }
+        [Display(Name = "Nombre")]
+        public string NombreCliente { get; set; }
+
+        [Required]
+        [Display(Name = "Ciudad")]
+        public string Ciudad{ get; set; }
+
+        [Required]
+        [Display(Name = "Colonia")]
+        public string Colonia { get; set; }
+
+        [Required]
+        [Display(Name = "Calle")]
+        public string Calle { get; set; }
+
+        [Required]
+        [Display(Name = "CodigoPostal")]
+        public string CodigoPostal { get; set; }
     }
 
     public class ResetPasswordViewModel

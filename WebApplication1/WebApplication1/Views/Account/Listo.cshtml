@@ -1,0 +1,22 @@
+﻿@model WebApplication1.Models.CreditViewModels
+@{
+    ViewBag.Title = "Usuario";
+}
+<div class="jumbotron">
+    <p class="lead">
+        ¡Su solicitud ha sido registrada! Le llegará un correo electrónico con instrucciones para proceder. 
+    </p>
+</div>
+
+<div class="text-center">
+    <div class="col-md-12">
+        <p>
+            Regresar a la página principal.
+        </p>
+        <p><a class="btn btn-default" href="@Url.Action("Cliente", "Account")">CONTINUAR &raquo;</a></p>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

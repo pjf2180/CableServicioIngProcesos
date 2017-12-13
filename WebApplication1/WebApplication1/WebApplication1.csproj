@@ -199,6 +199,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\InventarioMateriales.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MaterialViewModels.cs" />
     <Compile Include="Models\RegistroDeServicios.cs" />
     <Compile Include="Models\RegistroSolicitud.cs" />
     <Compile Include="Models\RegistroTrabajo.cs" />
@@ -267,6 +268,10 @@
     <Content Include="Views\Account\Pago.cshtml" />
     <Content Include="Views\Account\Estado.cshtml" />
     <Content Include="Views\Account\Paquetes.cshtml" />
+    <Content Include="Views\Account\Listo.cshtml" />
+    <Content Include="Views\Account\Tecnico.cshtml" />
+    <Content Include="Views\Account\Administrador.cshtml" />
+    <Content Include="Views\Account\Material.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

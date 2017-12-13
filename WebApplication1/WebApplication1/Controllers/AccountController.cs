@@ -33,6 +33,26 @@ namespace WebApplication1.Controllers
             return View(new CreditViewModels { Servicios = servicios });
         }
 
+        public ActionResult Administrador()
+        {
+            return View();
+        }
+
+        public ActionResult Material()
+        {
+            return View();
+        }
+
+        public ActionResult Tecnico()
+        {
+            return View();
+        }
+
+        public ActionResult Listo()
+        {
+            return View();
+        }
+
         public ActionResult Pago()
         {
             return View();
@@ -179,8 +199,6 @@ namespace WebApplication1.Controllers
         {
             if (ModelState.IsValid)
             {
-
-       
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 

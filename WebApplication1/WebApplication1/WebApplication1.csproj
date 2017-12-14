@@ -178,6 +178,7 @@
     <Compile Include="Controllers\InventoryController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ServiciosController.cs" />
+    <Compile Include="Controllers\TecnicoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -213,6 +214,8 @@
     <Compile Include="Models\TipoServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="View_models\DetalleSolicitudViewModel.cs" />
+    <Compile Include="View_models\ListaDeSolicitudesViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -278,6 +281,7 @@
     <Content Include="Views\Account\Tecnico.cshtml" />
     <Content Include="Views\Account\Administrador.cshtml" />
     <Content Include="Views\Inventory\Solicitud.cshtml" />
+    <Content Include="Views\Tecnico\Solicitudes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

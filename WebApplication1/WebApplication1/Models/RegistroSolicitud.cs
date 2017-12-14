@@ -12,9 +12,9 @@ namespace WebApplication1.Models
         public int RegistroSolicitudId { get; set; }
 
         public int TipoServicioId { get; set; }
-        public TipoServicio TipoServicio { get; set; }
+        public virtual TipoServicio TipoServicio { get; set; }
 
         public int ClienteId { get; set; }
-        public Cliente Cliente { get; set; }
+        public virtual Cliente Cliente { get; set; }
     }
 }

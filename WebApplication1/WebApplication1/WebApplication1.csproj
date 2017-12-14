@@ -281,7 +281,7 @@
     <Content Include="Views\Account\Tecnico.cshtml" />
     <Content Include="Views\Account\Administrador.cshtml" />
     <Content Include="Views\Inventory\Solicitud.cshtml" />
-    <Content Include="Views\Account\ViewDetails.cshtml" />
+    <Content Include="Views\Tecnico\ViewDetails.cshtml" />
     <Content Include="Views\Tecnico\Solicitudes.cshtml" />
   </ItemGroup>
   <ItemGroup>

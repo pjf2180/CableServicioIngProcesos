@@ -31,9 +31,10 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
-
-
-
+        public ActionResult Detalles()
+        {
+            return View();
+        }
         public ActionResult Tecnico()
         {
             return View();

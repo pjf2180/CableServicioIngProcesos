@@ -278,6 +278,7 @@
     <Content Include="Views\Account\Tecnico.cshtml" />
     <Content Include="Views\Account\Administrador.cshtml" />
     <Content Include="Views\Inventory\Solicitud.cshtml" />
+    <Content Include="Views\Account\ViewDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

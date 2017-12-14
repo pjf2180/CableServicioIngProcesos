@@ -1,0 +1,59 @@
+﻿@model WebApplication1.Models.MaterialViewModel
+@{
+    ViewBag.Title = "Técnico";
+}
+<div class="jumbotron">
+    <h1>Detalles de solicitud</h1>
+</div>
+
+<section id="loginForm">
+    @using (Html.BeginForm("Detalles", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <table class="table">
+            <tr>
+                <th>
+                    <h3>Nombre de cliente</h3>
+                </th>
+                <td>
+
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <h3>Tipo de servicio</h3>
+                </th>
+                <td>
+
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <h3>Dirección</h3>
+                </th>
+                <td>
+
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <h3>Estado de solicitud</h3>
+                </th>
+                <td>
+
+                </td>
+            </tr>
+            
+        </table>
+        
+        <br />
+        <div class="row">
+            <div class="text-center">
+                <div class="form-group">
+                    <input type="submit" class="btn btn-default" value="Cambiar estado" />
+                </div>
+            </div>
+        </div>
+    }
+</section>
+

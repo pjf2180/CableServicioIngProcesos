@@ -17,7 +17,7 @@ namespace WebApplication1.Controllers
         {
             _serviceManager = new ServiceManager();
         }
-
+        [HttpGet]
         public  ActionResult ViewDetails(int idSolicitud)
         {
             var vm = new DetalleSolicitudViewModel();

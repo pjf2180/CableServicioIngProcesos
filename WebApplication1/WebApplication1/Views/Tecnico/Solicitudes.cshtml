@@ -31,7 +31,7 @@
                 @Html.DisplayFor(modelItem => solicitud.TipoServicio.Descripcion)
             </td>
             <td>
-                @Html.ActionLink("Detalles","ViewDetails",new {id = solicitud.RegistroSolicitudId })
+                @Html.ActionLink("DetalleSolicitud", "ViewDetails", new { idSolicitud = solicitud.RegistroSolicitudId  }) 
                 @*@Html.ActionLink("Edit", "Edit", new { id = solicitud. }) |
                 @Html.ActionLink("Details", "Details", new { id = solicitud.MaterialId }) |
                 @Html.ActionLink("Delete", "Delete", new { id = solicitud.MaterialId })*@

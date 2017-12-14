@@ -30,5 +30,12 @@ namespace BusinessLogic
             context.SaveChanges();
             return inventario.Material;
         }
+        public ICollection<InventarioMaterial> GetInventario()
+        {
+            var inventario = 
+            context.InventarioMateriales.ToList();
+
+            return inventario;
+        }
     }
 }

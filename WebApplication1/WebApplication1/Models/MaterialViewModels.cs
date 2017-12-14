@@ -6,10 +6,14 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WebApplication1.Models
 {
-    public class MaterialViewModels
+    public class MaterialViewModel
     {
+        
+        [Display(Name = "InventarioMateriales")]
+        public ICollection<InventarioMaterial> InventarioMateriales { get; set; }
+
         [Required]
-        [Display(Name = "Material")]
-        public ICollection<InventarioMaterial> TipoMaterial { get; set; }
+        [Display(Name = "Cantidad")]
+        public Dictionary<string,string> Cantidades_Solicitadas { get; set; }
     }
 }

@@ -1,0 +1,80 @@
+﻿@model WebApplication1.Models.CreditViewModels
+
+
+@{
+    ViewBag.Title = "Usuario";
+}
+<style>
+    th, td {
+        padding: 15px;
+        font-weight: bold;
+    }
+</style>
+<div class="jumbotron">
+    <p class="lead">
+        Elige uno de nuestros paquetes de servicio.
+        <img src="~/Content/Int.png" alt="Internet" width="50">
+        <img src="~/Content/Telef.png" alt="Internet" width="50">
+        <img src="~/Content/Telev.png" alt="Internet" width="50">
+    </p>
+</div>
+
+
+
+
+
+@using (Html.BeginForm("Paquetes", "Servicios", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+ 
+    <div class="row">
+        <table align="center" style="width:80%">
+            <tr>
+                <th colspan="2" style="text-align:center">Servicios y paquetes</th>
+                <th style="text-align:center">Precios</th>
+            </tr>
+            @Html.AntiForgeryToken()
+            @foreach (var servicio in Model.Servicios)
+            {
+                <tr style="background-color:#FFE6E6">
+                    <td style="text-align:center">
+
+                        @Html.RadioButtonFor(b => b.selectedService, servicio.TipoServicioId)
+
+                    </td>
+                    <td>@servicio.Descripcion</td>
+                    <td style="text-align:center">$@servicio.Precio</td>
+                </tr>
+            }
+        </table>
+    </div>
+    <h4>Ingrese la información requerida para la forma de pago.</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(m => m.Titular, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Titular, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Clabe, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.Clabe, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Clave, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.Clave, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Continuar" />
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

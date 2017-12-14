@@ -20,28 +20,19 @@ namespace WebApplication1.Controllers
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
         private ClienteUserManager _clienteUserManager;
-        private ServiceManager _serviceManager;
+        private ApplicationDbContext context;
         public ActionResult Cliente()
         {
             return View();
         }
 
-        public ActionResult Paquetes()
-        {
-            var servicios = _serviceManager.GetCatalogoServicios();
-            
-            return View(new CreditViewModels { Servicios = servicios });
-        }
-
+       
         public ActionResult Administrador()
         {
             return View();
         }
 
-        public ActionResult Material()
-        {
-            return View();
-        }
+
 
         public ActionResult Tecnico()
         {
@@ -66,7 +57,7 @@ namespace WebApplication1.Controllers
         public AccountController()
         {
             _clienteUserManager = new ClienteUserManager();
-            _serviceManager = new ServiceManager();
+            context = new ApplicationDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -212,10 +203,9 @@ namespace WebApplication1.Controllers
                         CoidgoPostal = model.Ciudad,
                         Colonia = model.Colonia,
                         Nombre = model.NombreCliente,
-                        AppUser = user
+                        AppUserId = user.Id
 
                     });
-
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771

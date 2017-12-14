@@ -20,8 +20,11 @@ namespace WebApplication1.Models
         [Display(Name = "Clave (3 digitos)")]
         public string Clave { get; set; }
 
-        [Required]
+        public int selectedService { get; set; }
+
         [Display(Name = "Servicios")]
         public ICollection<TipoServicio> Servicios { get; set; }
     }
+
+
 }

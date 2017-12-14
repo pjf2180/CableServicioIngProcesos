@@ -1,0 +1,63 @@
+﻿@model WebApplication1.Models.MaterialViewModel
+@{
+    ViewBag.Title = "Técnico";
+}
+
+<div class="jumbotron">
+    <h1>Solicitar material</h1>
+</div>
+
+
+<section id="loginForm">
+    @using (Html.BeginForm("Solicitud", "Inventory", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <table class="table">
+            <tr>
+                <th>
+                    <h2>Material</h2>
+                </th>
+                <th>
+                    <h2>Cantidad Disponible</h2>
+                </th>
+                <th>
+                    <h2>Cantidad a solicitar</h2>
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.InventarioMateriales)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Material.Descripcion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Existencia)
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Cantidades_Solicitadas[@item.Material.MaterialId.ToString()], new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => m.Cantidades_Solicitadas, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+
+
+        <br />
+        <div class="row">
+            <div class="text-center">
+                <div class="form-group">
+                    <input type="submit" class="btn btn-default" value="Solicitar" />
+                </div>
+            </div>
+        </div>
+    }
+</section>
+

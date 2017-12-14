@@ -7,6 +7,7 @@ namespace WebApplication1.Models
 {
     public class Cliente
     {
+
         public int ClienteId { get; set; }
         public string Nombre { get; set; }
         public string Ciudad { get; set; }
@@ -15,6 +16,7 @@ namespace WebApplication1.Models
         public string CoidgoPostal { get; set; }
 
         public ApplicationUser AppUser { get; set; }
+        public string AppUserId { get; set; }
         public virtual ICollection<RegistroSolicitud> RegistrosDeSolicitud { get; set; }
     }
 }

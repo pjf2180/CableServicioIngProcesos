@@ -10,10 +10,11 @@ namespace BusinessLogic
 {
     public class ServiceManager:CableServicioManager
     {
-        public void ServiceRequest(int tipoServicioId,int clienteId)
+        public void ServiceRequest(int tipoServicioId,string userId)
         {
             if (context.CatalogoServicios.Where(x => x.TipoServicioId == tipoServicioId).Count() == 0)
                 throw new Exception();
+            int clienteId = context.Clientes.Where(x => x.AppUser.Id == userId).FirstOrDefault().ClienteId;
             RegistroSolicitud solicitud = new RegistroSolicitud
             { ClienteId = clienteId, TipoServicioId = tipoServicioId };
 

@@ -173,9 +173,11 @@
     <Compile Include="BusinessLogic\ServiceManager.cs" />
     <Compile Include="BusinessLogic\UserManager.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CableServicioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InventoryController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ServiciosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -191,11 +193,15 @@
     <Compile Include="Migrations\201712112046454_TipoServicioPrecioMigration.Designer.cs">
       <DependentUpon>201712112046454_TipoServicioPrecioMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712142120053_appUserIdClienteMigration.cs" />
+    <Compile Include="Migrations\201712142120053_appUserIdClienteMigration.Designer.cs">
+      <DependentUpon>201712142120053_appUserIdClienteMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CatalogoMateriales.cs" />
     <Compile Include="Models\Cliente.cs" />
-    <Compile Include="Models\CreditViewModels.cs" />
+    <Compile Include="View_models\CreditViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\InventarioMateriales.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -267,14 +273,15 @@
     <Content Include="Views\Account\Cliente.cshtml" />
     <Content Include="Views\Account\Pago.cshtml" />
     <Content Include="Views\Account\Estado.cshtml" />
-    <Content Include="Views\Account\Paquetes.cshtml" />
-    <Content Include="Views\Account\Listo.cshtml" />
+    <Content Include="Views\Servicios\Paquetes.cshtml" />
+    <Content Include="Views\Servicios\Listo.cshtml" />
     <Content Include="Views\Account\Tecnico.cshtml" />
     <Content Include="Views\Account\Administrador.cshtml" />
-    <Content Include="Views\Account\Material.cshtml" />
+    <Content Include="Views\Inventory\Solicitud.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\CableServicio\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -293,6 +300,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712112046454_TipoServicioPrecioMigration.resx">
       <DependentUpon>201712112046454_TipoServicioPrecioMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712142120053_appUserIdClienteMigration.resx">
+      <DependentUpon>201712142120053_appUserIdClienteMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -28,6 +28,7 @@ namespace WebApplication1.Migrations
             //    );
             //
             context.CatalogoServicios.AddOrUpdate(
+                p => p.Descripcion,
                 new Models.TipoServicio { Descripcion = "Telefonía", Precio = 100 },
                 new Models.TipoServicio { Descripcion = "Televisión", Precio = 300},
                 new Models.TipoServicio { Descripcion = "Telefonía + Televisión", Precio = 350},

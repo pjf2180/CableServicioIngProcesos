@@ -14,6 +14,7 @@ namespace WebApplication1.BusinessLogic
             try
             {
                 context.Clientes.Add(cliente);
+                context.SaveChanges();
             }
             catch(Exception ex)
             {

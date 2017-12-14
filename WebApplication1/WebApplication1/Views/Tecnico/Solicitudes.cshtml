@@ -1,0 +1,42 @@
+﻿
+@model WebApplication1.View_models.ListaDeSolicitudesViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Solicitudes</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            <h2>Cliente</h2>
+        </th>
+        <th>
+            <h2>Servicio</h2>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var solicitud in Model.Solicitudes)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => solicitud.Cliente.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => solicitud.TipoServicio.Descripcion)
+            </td>
+            <td>
+                @Html.ActionLink("Detalles","ViewDetails",new {id = solicitud.RegistroSolicitudId })
+                @*@Html.ActionLink("Edit", "Edit", new { id = solicitud. }) |
+                @Html.ActionLink("Details", "Details", new { id = solicitud.MaterialId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = solicitud.MaterialId })*@
+            </td>
+        </tr>
+    }
+
+</table>

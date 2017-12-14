@@ -55,11 +55,5 @@ namespace WebApplication1.Controllers
             return user;
         }
 
-        // GET: CableServicio
-        public ActionResult Index()
-        {
-            
-            return View();
-        }
     }
 }

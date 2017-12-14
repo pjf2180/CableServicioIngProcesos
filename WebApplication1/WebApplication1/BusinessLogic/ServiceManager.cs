@@ -26,9 +26,17 @@ namespace BusinessLogic
             context.RegistrosDeTrabajo.Add(registro);
             context.SaveChanges();
         }
+        public RegistroSolicitud GetRegsitroSolicitud(int id)
+        {
+            return context.RegistrosDeSolicitud.Where(x => x.RegistroSolicitudId == id).FirstOrDefault();
+        }
         public ICollection<TipoServicio> GetCatalogoServicios()
         {
             return context.CatalogoServicios.ToList();
+        }
+        public ICollection<RegistroSolicitud> GetSolicitudes()
+        {
+            return context.RegistrosDeSolicitud.ToList();
         }
     }
 }

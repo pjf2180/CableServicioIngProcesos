@@ -170,6 +170,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="BusinessLogic\CableServicioManager.cs" />
     <Compile Include="BusinessLogic\InventoryManager.cs" />
+    <Compile Include="BusinessLogic\NominaManager.cs" />
     <Compile Include="BusinessLogic\ServiceManager.cs" />
     <Compile Include="BusinessLogic\UserManager.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -199,6 +200,18 @@
     <Compile Include="Migrations\201712142120053_appUserIdClienteMigration.Designer.cs">
       <DependentUpon>201712142120053_appUserIdClienteMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712150415129_ok1.cs" />
+    <Compile Include="Migrations\201712150415129_ok1.Designer.cs">
+      <DependentUpon>201712150415129_ok1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712150425518_ok11.cs" />
+    <Compile Include="Migrations\201712150425518_ok11.Designer.cs">
+      <DependentUpon>201712150425518_ok11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712150443303_ok2.cs" />
+    <Compile Include="Migrations\201712150443303_ok2.Designer.cs">
+      <DependentUpon>201712150443303_ok2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CatalogoMateriales.cs" />
@@ -217,7 +230,6 @@
     <Compile Include="Startup.cs" />
     <Compile Include="View_models\DetalleNominasViewModel.cs" />
     <Compile Include="View_models\DetalleSolicitudViewModel.cs" />
-    <Compile Include="View_models\ListaDeNominasViewModel.cs" />
     <Compile Include="View_models\ListaDeSolicitudesViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -286,7 +298,7 @@
     <Content Include="Views\Inventory\Solicitud.cshtml" />
     <Content Include="Views\Tecnico\ViewDetails.cshtml" />
     <Content Include="Views\Tecnico\Solicitudes.cshtml" />
-    <Content Include="Views\Account\Nomina.cshtml" />
+    <Content Include="Views\Administrador\Nomina.cshtml" />
     <Content Include="Views\Administrador\VerDetalles.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -313,6 +325,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712142120053_appUserIdClienteMigration.resx">
       <DependentUpon>201712142120053_appUserIdClienteMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712150415129_ok1.resx">
+      <DependentUpon>201712150415129_ok1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712150425518_ok11.resx">
+      <DependentUpon>201712150425518_ok11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712150443303_ok2.resx">
+      <DependentUpon>201712150443303_ok2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

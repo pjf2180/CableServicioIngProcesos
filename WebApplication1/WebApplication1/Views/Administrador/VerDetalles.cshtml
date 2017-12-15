@@ -1,4 +1,4 @@
-﻿@model WebApplication1.View_models.DetalleNominasViewModel
+﻿@model WebApplication1.Models.RegistroTrabajo
 @{
     ViewBag.Title = "Administrador";
 }
@@ -7,7 +7,7 @@
 </div>
 
 <section id="loginForm">
-    @using (Html.BeginForm("VerDetails", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    @using (Html.BeginForm("Aprobar", "Administrador", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
         <table class="table">
@@ -16,7 +16,7 @@
                     <h3>No. Registro de trabajo</h3>
                 </th>
                 <td>
-                    @Html.DisplayFor(x => x.Trabajo.RegistroTrabajoId)
+                    @Html.DisplayFor(x => x.RegistroTrabajoId)
                 </td>
             </tr>
             <tr>
@@ -24,7 +24,7 @@
                     <h3>No. Empleado</h3>
                 </th>
                 <td>
-                    @Html.DisplayFor(x => x.Trabajo.RegistroTrabajoId)
+                    @Html.DisplayFor(x => x.TecnicoId)
                 </td>
             </tr>
             <tr>
@@ -32,7 +32,7 @@
                     <h3>Horas trabajadas</h3>
                 </th>
                 <td>
-                    @Html.DisplayFor(x => x.Trabajo.HorasTrabajadas)
+                    @Html.DisplayFor(x => x.HorasTrabajadas)
                 </td>
             </tr>
             <tr>
@@ -40,7 +40,7 @@
                     <h3>Fecha</h3>
                 </th>
                 <td>
-                    @Html.DisplayFor(x => x.Trabajo.Fecha)
+                    @Html.DisplayFor(x => x.Fecha)
                 </td>
             </tr>
             <tr>
@@ -48,7 +48,7 @@
                     <h3>Estado de nomina</h3>
                 </th>
                 <td>
-                    Pendiente / Aprovado
+                    @Html.DisplayFor(x=>x.status_str  )
                 </td>
             </tr>
 

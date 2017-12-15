@@ -1,4 +1,4 @@
-﻿@model WebApplication1.View_models.ListaDeNominasViewModel
+﻿@model IEnumerable<WebApplication1.Models.RegistroTrabajo>
 @{
     ViewBag.Title = "Nomina";
 }
@@ -16,17 +16,17 @@
         <th></th>
     </tr>
 
-    @foreach (var trabajo in Model.Trabajos)
+    @foreach (var item in Model)
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => trabajo.TecnicoId)
+                @Html.DisplayFor(modelItem => item.TecnicoId)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => trabajo.Fecha)
+                @Html.DisplayFor(modelItem => item.Fecha)
             </td>
             <td>
-                @Html.ActionLink("Detalles", "VerDetails", new { idSolicitud = trabajo.RegistroTrabajoId })
+                @Html.ActionLink("Detalles", "VerDetalles", new { idSolicitud = item.RegistroTrabajoId })
             </td>
         </tr>
     }

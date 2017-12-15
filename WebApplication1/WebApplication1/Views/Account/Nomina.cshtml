@@ -1,0 +1,34 @@
+﻿@model WebApplication1.View_models.ListaDeNominasViewModel
+@{
+    ViewBag.Title = "Nomina";
+}
+
+<h2>Manejar nomina</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            <h2>No. Empleado</h2>
+        </th>
+        <th>
+            <h2>Fecha</h2>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var trabajo in Model.Trabajos)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => trabajo.TecnicoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => trabajo.Fecha)
+            </td>
+            <td>
+                @Html.ActionLink("Detalles", "VerDetails", new { idSolicitud = trabajo.RegistroTrabajoId })
+            </td>
+        </tr>
+    }
+
+</table>

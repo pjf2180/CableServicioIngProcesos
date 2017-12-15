@@ -1,0 +1,67 @@
+﻿@model WebApplication1.View_models.DetalleNominasViewModel
+@{
+    ViewBag.Title = "Administrador";
+}
+<div class="jumbotron">
+    <h1>Detalles de trabajo</h1>
+</div>
+
+<section id="loginForm">
+    @using (Html.BeginForm("VerDetails", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <table class="table">
+            <tr>
+                <th>
+                    <h3>No. Registro de trabajo</h3>
+                </th>
+                <td>
+                    @Html.DisplayFor(x => x.Trabajo.RegistroTrabajoId)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <h3>No. Empleado</h3>
+                </th>
+                <td>
+                    @Html.DisplayFor(x => x.Trabajo.RegistroTrabajoId)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <h3>Horas trabajadas</h3>
+                </th>
+                <td>
+                    @Html.DisplayFor(x => x.Trabajo.HorasTrabajadas)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <h3>Fecha</h3>
+                </th>
+                <td>
+                    @Html.DisplayFor(x => x.Trabajo.Fecha)
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    <h3>Estado de nomina</h3>
+                </th>
+                <td>
+                    Pendiente / Aprovado
+                </td>
+            </tr>
+
+        </table>
+
+        <br />
+        <div class="row">
+            <div class="text-center">
+                <div class="form-group">
+                    <input type="submit" class="btn btn-default" value="Cambiar estado" />
+                </div>
+            </div>
+        </div>
+    }
+</section>
+

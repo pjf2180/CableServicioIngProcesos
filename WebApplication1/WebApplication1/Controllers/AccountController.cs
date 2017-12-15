@@ -25,9 +25,11 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
-
-       
         public ActionResult Administrador()
+        {
+            return View();
+        }
+        public ActionResult Nomina()
         {
             return View();
         }

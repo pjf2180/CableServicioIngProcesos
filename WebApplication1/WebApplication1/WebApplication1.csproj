@@ -173,6 +173,7 @@
     <Compile Include="BusinessLogic\ServiceManager.cs" />
     <Compile Include="BusinessLogic\UserManager.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdministradorController.cs" />
     <Compile Include="Controllers\CableServicioController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InventoryController.cs" />
@@ -214,7 +215,9 @@
     <Compile Include="Models\TipoServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="View_models\DetalleNominasViewModel.cs" />
     <Compile Include="View_models\DetalleSolicitudViewModel.cs" />
+    <Compile Include="View_models\ListaDeNominasViewModel.cs" />
     <Compile Include="View_models\ListaDeSolicitudesViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -283,6 +286,8 @@
     <Content Include="Views\Inventory\Solicitud.cshtml" />
     <Content Include="Views\Tecnico\ViewDetails.cshtml" />
     <Content Include="Views\Tecnico\Solicitudes.cshtml" />
+    <Content Include="Views\Account\Nomina.cshtml" />
+    <Content Include="Views\Administrador\VerDetalles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

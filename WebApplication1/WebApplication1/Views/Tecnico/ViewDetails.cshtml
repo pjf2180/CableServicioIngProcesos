@@ -24,7 +24,7 @@
                     <h3>Tipo de servicio</h3>
                 </th>
                 <td>
-
+                    @Html.DisplayFor(x => x.Solicitud.TipoServicio.Descripcion)
                 </td>
             </tr>
             <tr>
@@ -32,7 +32,10 @@
                     <h3>Dirección</h3>
                 </th>
                 <td>
-
+                    @Html.DisplayFor(x => x.Solicitud.Cliente.Calle)
+                    @Html.DisplayFor(x => x.Solicitud.Cliente.Ciudad)
+                    @Html.DisplayFor(x => x.Solicitud.Cliente.Colonia)
+                    @Html.DisplayFor(x => x.Solicitud.Cliente.CoidgoPostal)
                 </td>
             </tr>
             <tr>
@@ -40,7 +43,7 @@
                     <h3>Estado de solicitud</h3>
                 </th>
                 <td>
-
+                    Pendiente / Finalizado
                 </td>
             </tr>
             

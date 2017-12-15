@@ -36,7 +36,7 @@ namespace BusinessLogic
         }
         public ICollection<RegistroSolicitud> GetSolicitudes()
         {
-            return context.RegistrosDeSolicitud.ToList();
+            return context.RegistrosDeSolicitud.ToList(); 
         }
     }
 }

@@ -12,7 +12,7 @@ namespace WebApplication1.BusinessLogic
 
         public void ActualizarRegsitro(RegistroTrabajo registro)
         {
-            registro.status = true;
+            
             context.Entry(registro).State = System.Data.Entity.EntityState.Modified;
             context.SaveChanges();
         }

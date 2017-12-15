@@ -176,6 +176,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdministradorController.cs" />
     <Compile Include="Controllers\CableServicioController.cs" />
+    <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InventoryController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -288,13 +289,13 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Inventory\Index.cshtml" />
-    <Content Include="Views\Account\Cliente.cshtml" />
+    <Content Include="Views\Cliente\Index.cshtml" />
     <Content Include="Views\Account\Pago.cshtml" />
     <Content Include="Views\Account\Estado.cshtml" />
     <Content Include="Views\Servicios\Paquetes.cshtml" />
     <Content Include="Views\Servicios\Listo.cshtml" />
-    <Content Include="Views\Account\Tecnico.cshtml" />
-    <Content Include="Views\Account\Administrador.cshtml" />
+    <Content Include="Views\Tecnico\Index.cshtml" />
+    <Content Include="Views\Administrador\Index.cshtml" />
     <Content Include="Views\Inventory\Solicitud.cshtml" />
     <Content Include="Views\Tecnico\ViewDetails.cshtml" />
     <Content Include="Views\Tecnico\Solicitudes.cshtml" />

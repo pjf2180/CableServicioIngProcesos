@@ -11,6 +11,8 @@ using Microsoft.Owin.Security;
 using WebApplication1.Models;
 using WebApplication1.BusinessLogic;
 using BusinessLogic;
+using System.Collections.Generic;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace WebApplication1.Controllers
 {
@@ -21,10 +23,7 @@ namespace WebApplication1.Controllers
         private ApplicationUserManager _userManager;
         private ClienteUserManager _clienteUserManager;
         private ApplicationDbContext context;
-        public ActionResult Cliente()
-        {
-            return View();
-        }
+
         public ActionResult Administrador()
         {
             return View();
@@ -61,6 +60,11 @@ namespace WebApplication1.Controllers
         {
             _clienteUserManager = new ClienteUserManager();
             context = new ApplicationDbContext();
+        }
+        public async Task<ApplicationUser> GetCurrentUser(string name)
+        {
+            var user = await UserManager.FindByNameAsync(name);
+            return user;
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -117,11 +121,23 @@ namespace WebApplication1.Controllers
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
+            string roleName = "";
             var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var user = await GetCurrentUser(model.Email);
+            
+            ICollection<IdentityUserRole> roles = user.Roles;
+            string roleId = roles.First().RoleId;
+            if (UserManager.IsInRole(user.Id, "Tecnico"))
+                roleName = "Tecnico";
+            if (UserManager.IsInRole(user.Id, "Administrador"))
+                roleName = "Administrador";
+            if (UserManager.IsInRole(user.Id, "Cliente"))
+                roleName = "Cliente";
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    //return RedirectToLocal(returnUrl);
+                    return RedirectToIndex(roleName);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -193,22 +209,28 @@ namespace WebApplication1.Controllers
         {
             if (ModelState.IsValid)
             {
+                var roleName = "Cliente";
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 
                 if (result.Succeeded)
                 {
-                    await UserManager.AddToRoleAsync(user.Id, "Cliente");
-                    _clienteUserManager.AddClienteUser(new Models.Cliente
+                    await UserManager.AddToRoleAsync(user.Id,roleName );
+                    if(roleName=="Cliente")
                     {
-                        Calle = model.Calle,
-                        Ciudad = model.Ciudad,
-                        CoidgoPostal = model.Ciudad,
-                        Colonia = model.Colonia,
-                        Nombre = model.NombreCliente,
-                        AppUserId = user.Id
+                        _clienteUserManager.AddClienteUser(new Models.Cliente
+                        {
+                            Calle = model.Calle,
+                            Ciudad = model.Ciudad,
+                            CoidgoPostal = model.Ciudad,
+                            Colonia = model.Colonia,
+                            Nombre = model.NombreCliente,
+                            AppUserId = user.Id
 
-                    });
+                        });
+
+                    }
+                    
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
@@ -217,7 +239,7 @@ namespace WebApplication1.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Cliente", "Account");
+                    return RedirectToAction("Index", "Cliente");
                 }
                 AddErrors(result);
             }
@@ -384,6 +406,7 @@ namespace WebApplication1.Controllers
 
             // Sign in the user with this external login provider if the user already has a login
             var result = await SignInManager.ExternalSignInAsync(loginInfo, isPersistent: false);
+
             switch (result)
             {
                 case SignInStatus.Success:
@@ -496,9 +519,15 @@ namespace WebApplication1.Controllers
                 ModelState.AddModelError("", error);
             }
         }
+        private ActionResult RedirectToIndex(string rol)
+        {
 
+            return RedirectToAction( "Index",rol);
+        }
         private ActionResult RedirectToLocal(string returnUrl)
         {
+           
+
             if (Url.IsLocalUrl(returnUrl))
             {
                 return Redirect(returnUrl);

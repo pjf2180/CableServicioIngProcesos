@@ -40,7 +40,7 @@ namespace WebApplication1.Controllers
             foreach (var item in model.Cantidades_Solicitadas)
                 manager.RequestMaterial(Convert.ToInt32(item.Value), Convert.ToInt32(item.Key));
 
-            return Solicitud();
+            return RedirectToAction("Index","Tecnico");
 
         }
 

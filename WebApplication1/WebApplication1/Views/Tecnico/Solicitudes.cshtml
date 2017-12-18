@@ -7,9 +7,6 @@
 
 <h2>Solicitudes</h2>
 
-@*<p>
-    @Html.ActionLink("Create New", "Create")
-</p>*@
 <table class="table">
     <tr>
         <th>
@@ -23,6 +20,7 @@
 
     @foreach (var solicitud in Model.Solicitudes)
     {
+        if(solicitud.EstadoSolicitud == false) { 
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => solicitud.Cliente.Nombre)
@@ -32,11 +30,9 @@
             </td>
             <td>
                 @Html.ActionLink("Detalles", "ViewDetails", new { idSolicitud = solicitud.RegistroSolicitudId  }) 
-                @*@Html.ActionLink("Edit", "Edit", new { id = solicitud. }) |
-                @Html.ActionLink("Details", "Details", new { id = solicitud.MaterialId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = solicitud.MaterialId })*@
             </td>
         </tr>
+        }
     }
 
 </table>

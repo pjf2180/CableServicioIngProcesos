@@ -11,7 +11,6 @@ namespace WebApplication1.Controllers
 {
     public class ServiciosController : CableServicioController
     {
-
         private ServiceManager _serviceManager;
 
         public ServiciosController():base()
@@ -25,8 +24,6 @@ namespace WebApplication1.Controllers
 
             return View(new CreditViewModels { Servicios = servicios});
         }
-
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]

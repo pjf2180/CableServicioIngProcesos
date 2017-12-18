@@ -8,7 +8,7 @@ namespace WebApplication1.View_models
 {
     public class DetalleNominasViewModel
     {
-        public RegistroTrabajo Trabajo{ get; set; }
+        public RegistroTrabajo Trabajo { get; set; }
 
         public bool isApproved { get; set; }
     }

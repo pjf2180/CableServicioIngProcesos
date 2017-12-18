@@ -38,7 +38,7 @@
                     @Html.DisplayFor(x => x.Solicitud.Cliente.CoidgoPostal)
                 </td>
             </tr>
-            <tr>
+            <!--<tr>
                 <th>
                     <h3>Estado de solicitud</h3>
                 </th>
@@ -46,14 +46,15 @@
                     Pendiente / Finalizado
                 </td>
             </tr>
-            
+            -->
         </table>
         
         <br />
         <div class="row">
             <div class="text-center">
                 <div class="form-group">
-                    <input type="submit" class="btn btn-default" value="Cambiar estado" />
+                    @Html.HiddenFor(x => x.Solicitud.RegistroSolicitudId)
+                    <input type="submit" class="btn btn-default" value="Finalizar" />
                 </div>
             </div>
         </div>

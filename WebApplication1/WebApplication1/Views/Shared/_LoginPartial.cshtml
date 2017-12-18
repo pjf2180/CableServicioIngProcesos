@@ -4,20 +4,20 @@
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
 
-    @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
 
-    if (User.IsInRole("Cliente"))
-    {
-        <ul class="nav navbar-nav navbar-right">
-            <li>@Html.ActionLink("Inicio", "Index", "Cliente")</li>
-            <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-            <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-            <li>
-                @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-            </li>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
-        </ul>
-    }
+        if (User.IsInRole("Cliente"))
+        {
+            <ul class="nav navbar-nav navbar-right">
+                <li>@Html.ActionLink("Inicio", "Index", "Cliente")</li>
+                <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+                <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                <li>
+                    @Html.ActionLink("Hola " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                </li>
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
+            </ul>
+        }
         if (User.IsInRole("Tecnico"))
         {
             <ul class="nav navbar-nav navbar-right">
@@ -30,7 +30,6 @@
                 <li><a href="javascript:document.getElementById('logoutForm').submit()">Cerrar sesión</a></li>
             </ul>
         }
-
         if (User.IsInRole("Administrador"))
         {
             <ul class="nav navbar-nav navbar-right">

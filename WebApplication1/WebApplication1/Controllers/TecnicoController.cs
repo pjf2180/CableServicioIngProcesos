@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Models;
 using WebApplication1.View_models;
+using System.Data.Entity;
 
 namespace WebApplication1.Controllers
 {
@@ -75,6 +76,18 @@ namespace WebApplication1.Controllers
             vm.Solicitudes = _serviceManager.GetSolicitudes();
                
             return View(vm);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ViewDetails(DetalleSolicitudViewModel registro)
+        {
+            ApplicationDbContext context;
+            context = new ApplicationDbContext();
+            RegistroSolicitud estado = context.RegistrosDeSolicitud.Where(x => x.RegistroSolicitudId == registro.Solicitud.RegistroSolicitudId).FirstOrDefault();
+            estado.EstadoSolicitud = true;
+            context.Entry(estado).State = EntityState.Modified;
+            context.SaveChanges();
+            return View("Index");
         }
     }
 }

@@ -18,6 +18,8 @@
 
     @foreach (var item in Model)
     {
+        if (item.status == false)
+        {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.TecnicoId)
@@ -29,6 +31,7 @@
                 @Html.ActionLink("Detalles", "VerDetalles", new { idSolicitud = item.RegistroTrabajoId })
             </td>
         </tr>
+        }
     }
 
 </table>

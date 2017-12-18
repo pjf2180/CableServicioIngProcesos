@@ -10,6 +10,7 @@ using WebApplication1.BusinessLogic;
 using WebApplication1.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using System.Data.Entity;
 
 namespace WebApplication1.Controllers
 {
@@ -78,6 +79,18 @@ namespace WebApplication1.Controllers
             
             return View();
 
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult VerDetalles(DetalleNominasViewModel registro)
+        {
+            ApplicationDbContext context;
+            context = new ApplicationDbContext();
+            RegistroTrabajo estado = context.RegistrosDeTrabajo.Where(x => x.RegistroTrabajoId == registro.Trabajo.RegistroTrabajoId).FirstOrDefault();
+            estado.status = true;
+            context.Entry(estado).State = EntityState.Modified;
+            context.SaveChanges();
+            return View("Index");
         }
     }
 }

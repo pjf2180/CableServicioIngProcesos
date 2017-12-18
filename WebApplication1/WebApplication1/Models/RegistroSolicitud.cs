@@ -11,7 +11,7 @@ namespace WebApplication1.Models
     {
         public int RegistroSolicitudId { get; set; }
 
-        public bool estadoSolicitud { get; set;}
+        public bool EstadoSolicitud { get; set; }
         public int TipoServicioId { get; set; }
         public virtual TipoServicio TipoServicio { get; set; }
 
